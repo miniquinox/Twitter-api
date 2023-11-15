@@ -1,19 +1,21 @@
-# THIS WORKS
-
 import tweepy
+import json
 
-consumer_key         = "Clv613899drC0uSPpaMNcQYEP"
-consumer_secret      = "RCElHgHfytB7UIHtr9XLnP8V5KikBwqw09zUCMh1okhUQ1LUzs"
-bearer_token    = "AAAAAAAAAAAAAAAAAAAAADvsqgEAAAAA63r2%2BiFLoCvbJu%2BGgZkn15hRpug%3DrVhaivZFcTXjbHKGDutN2Q109vvtm1TrlEaAjlYFOBZfFmamTs"
-access_token    = "706530790591430656-CqShCARbcxp7BFUx7zKYW4SXc5JeQM5"
-access_token_secret   = "ePlprSO2s10u4YIhsXA69wiw9rJ2hmpfwnaFHdyOaw8Wx"
+def load_credentials(file_name):
+    with open(file_name, 'r') as file:
+        return json.load(file)
 
-# You can authenticate as your app with just your bearer token
-client = tweepy.Client(bearer_token=bearer_token)
+if __name__ == "__main__":
+    credentials = load_credentials('credentials.json')
 
-# You can provide the consumer key and secret with the access token and access
-# token secret to authenticate as a user
-client = tweepy.Client(
-    consumer_key=consumer_key, consumer_secret=consumer_secret,
-    access_token=access_token, access_token_secret=access_token_secret
-)
+    # Set up Tweepy client
+    client = tweepy.Client(
+        bearer_token=credentials['bearer_token'],
+        consumer_key=credentials['consumer_key'],
+        consumer_secret=credentials['consumer_secret'],
+        access_token=credentials['access_token'],
+        access_token_secret=credentials['access_token_secret']
+    )
+
+    # Example usage of the client
+    # You can use the client to interact with the Twitter API
