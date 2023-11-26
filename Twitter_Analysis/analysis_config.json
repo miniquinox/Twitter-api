@@ -1,0 +1,30 @@
+{
+    "analysis_config": {
+        "generic": [ 
+            {
+                "keyword": "#INFORMS",
+                "type": "Generic",
+                "year": "2023"
+            },
+            {
+                "keyword": "@INFORMS",
+                "type": "Generic",
+                "year": "All"
+            }
+        ],
+        "events":[
+            {
+                "keyword": "#INFORMS2023",
+                "type": "event",
+                "year": "2023",
+                "start_date": "2023-10-01",
+                "end_date": "2023-10-31",
+                "event_period": {
+                    "start_date": "2023-10-15",
+                    "end_date": "2023-10-18"
+                }
+            }
+        ]
+    }
+  }
+  
