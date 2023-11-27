@@ -1,0 +1,36 @@
+[
+    {
+        "public_metrics": {
+            "retweet_count": 1,
+            "reply_count": 0,
+            "like_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0,
+            "impression_count": 0
+        },
+        "author_id": "1519933327201173504",
+        "created_at": "2023-11-20T06:10:42.000Z",
+        "edit_history_tweet_ids": [
+            "1726483183498297455"
+        ],
+        "text": "RT @Forexregul72941: FP Markets Review and Information 2023#forex #xtreamforex #xtream #ecnforexbroker #broker #online #trading #money #bus…",
+        "id": "1726483183498297455"
+    },
+    {
+        "public_metrics": {
+            "retweet_count": 0,
+            "reply_count": 0,
+            "like_count": 0,
+            "quote_count": 0,
+            "bookmark_count": 0,
+            "impression_count": 549
+        },
+        "author_id": "24923980",
+        "created_at": "2023-11-18T18:04:00.000Z",
+        "edit_history_tweet_ids": [
+            "1725937915472085330"
+        ],
+        "text": "Tune in for a special Resoundingly Human episode featuring Jim Cochran, University of Alabama, and recorded in-person at the 2023 Annual Meeting! https://t.co/neIH4Fuenu\n\n#INFORMS2023 #urbanblight #humantrafficking #VisitingScholar https://t.co/Yq8Pycrcd6",
+        "id": "1725937915472085330"
+    }
+]
