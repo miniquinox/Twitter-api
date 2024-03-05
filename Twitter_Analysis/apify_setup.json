@@ -1,0 +1,22 @@
+{
+    "search_keywords": [
+        "@INFORMS"
+    ],
+    "max_limit": 600,
+    "frequency": "weekly",
+    "tweet_fields": {"author_id": "user_id_str",
+                     "created_at": "created_at",
+                     "text": "full_text",
+                     "tweet_id": "id_str",
+                     "public_metrics" : {
+                        "retweet_count": "retweet_count",
+                        "reply_count": "reply_count",
+                        "quote_count": "quote_count",
+                        "bookmark_count": "bookmark_count"},
+                     "url": "url"
+                    },
+    "created_at_format": "%a %b %d %H:%M:%S +0000 %Y",
+    "api_token": "apify_api_2Ed7E8HuFLZ9imqVWCgl6jYkFJ62lM3dxXcx",
+    "actor_id" : "heLL6fUofdPgRXZie",
+    "base_directory": "TWEET_ARCHIEVE"
+}
