@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Analysis</title>
+    <link rel="stylesheet" href="../static/Homepage.css">
+</head>
+<body>
+
+<div class="filters">
+    <label for="maxCount">maximum number:</label>
+    <input type="number" id="maxCount" name="maxCount">
+
+    <label for="tags">Select Tag:</label>
+    <select id="tags" name="tags">
+        <option value="">Choose...</option>
+        <option value="#INFORMS2023">#INFORMS2023</option>
+        <option value="#Logistics">#Logistics</option>
+        <option value="#informs2023">#informs2023</option>
+    </select>
+
+    <button onclick="applyFilters()">Apply</button>
+</div>
+
+<div class="bubble-container">
+</div>
+
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+function applyFilters() {
+    // Getting Filter value
+    const maxCount = document.getElementById('maxCount').value;
+    const selectedTag = document.getElementById('tags').value;
+
+    // Using axios to send a POST request to the Flask backend
+    axios.post('/filter-users', {
+        maxCount: parseInt(maxCount, 10),
+        tag: selectedTag
+    })
+    .then(function (response) {
+        // Processing of returned user avatar
+        console.log(response)
+        displayBubbles(response.data);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
+function displayBubbles(data) {
+    const container = document.querySelector('.bubble-container');
+    container.innerHTML = ''; // Empty existing content
+
+    const avatars = data[0];
+    const urls = data[1];
+
+    avatars.forEach((avatar, index) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+
+        // Create elements that contain avatars and links
+        const link = document.createElement('a');
+        link.href = urls[index]; // Setting the link address
+        link.target = '_blank'; // Open link in new tab
+
+        const img = document.createElement('img');
+        img.src = avatar;
+        img.alt = "user avatar";
+
+        // Add the avatar image to the link element and then add the link element to the bubble
+        link.appendChild(img);
+        bubble.appendChild(link);
+
+        // Adding Bubbles to a Container
+        container.appendChild(bubble);
+    });
+}
+
+</script>
+</html>
