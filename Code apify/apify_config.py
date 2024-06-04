@@ -1,4 +1,6 @@
-!pip3 install apify_client
+## pip install python-dotenv
+## pip install apify-client
+## pip install requests
 
 # Import necessary libraries
 import json
@@ -6,6 +8,10 @@ import os
 import logging
 from apify_client import ApifyClient
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Function to load apify_setup from a JSON file
 def load_apify_setup(file_name):
@@ -184,8 +190,13 @@ def main():
             logging.error("Error loading the set up.")
             return
 
-        # Initialize the ApifyClient with the API token
-        client = ApifyClient(setup["api_token"])
+        # Initialize the ApifyClient with the API token from environment variables
+        api_token = os.getenv('APIFY_API_TOKEN')
+        if not api_token:
+            logging.error("APIFY_API_TOKEN environment variable not set.")
+            return
+
+        client = ApifyClient(api_token)
         if not client:
             logging.error("Error initializing ApifyClient.")
             return
