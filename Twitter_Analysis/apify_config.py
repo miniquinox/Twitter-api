@@ -1,4 +1,4 @@
-!pip3 install apify_client
+## !pip3 install apify_client
 
 # Import necessary libraries
 import json
